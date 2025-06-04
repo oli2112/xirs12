@@ -114,9 +114,10 @@ tabs = st.tabs(["🔢 Cálculo de Números", "📖 Significados", "📘 Definici
 
 with tabs[0]:
     st.write("Calcula los números principales a partir de tu nombre completo, apodo y fecha de nacimiento.")
-
-    nombre = st.text_input("Nombre completo", value="Jhon Erickson Olivares Ramos")
-    apodo = st.text_input("Nombre de apodo o firma", value="Papi")
+    #apodo = st.text_input("Nombre de apodo o firma", value="Papi")
+    #nombre = st.text_input("Nombre completo", value="Jhon Erickson Olivares Ramos")
+    nombre = st.text_input("Nombre completo")
+    apodo = st.text_input("Nombre de apodo o firma")
     fecha = st.date_input(
         "Fecha de nacimiento",
         value=datetime.date(1982, 3, 21),
