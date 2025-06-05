@@ -11,77 +11,64 @@ from diadelnacimiento import dias_nacimiento
 from letraInicialDelNombre import letra_inicial_caldea
 import pandas as pd
 
-
-# Título
-st.title("App con zoom de fuente dinámico")
-
-# Slider para ajustar el tamaño de fuente base (zoom)
-font_size = st.slider("Tamaño de fuente (px)", min_value=12, max_value=32, value=18)
-
+font_size = 20  # ejemplo dinámico
 
 st.markdown(f"""
 <style>
-/* ===== Tamaño base general ===== */
-html, body {{
-    font-size: {font_size}px;
+/* Estilo para checkbox (expander simulado) */
+input[type="checkbox"] {{
+    transform: scale(1.3);
+    margin-right: 6px;
 }}
-
-/* ===== Títulos de Tabs (clase generada estable) ===== */
-div[data-testid="stTabs"] button {{
-    font-size: {font_size + 12}px !important;
-}}
-
-/* ===== Título del Expander ===== */
-div[data-testid="stExpander"] summary {{
+label {{
     font-size: {font_size + 2}px !important;
 }}
 
-/* ===== Texto dentro del Expander ===== */
-div[data-testid="stExpander"] div[role="region"] {{
-    font-size: {font_size}px !important;
+/* Estilo para radio (tabs simulados) */
+div[data-testid="stRadio"] label {{
+    font-size: {font_size + 2}px !important;
 }}
 
-/* ===== Otros elementos ===== */
-h1, h2, h3, h4, h5, h6 {{
-    font-size: {font_size + 6}px !important;
-}}
-
-input[type="text"], input[type="number"], textarea, select, button {{
-    font-size: {font_size}px !important;
-}}
-
-input[type="checkbox"], input[type="radio"] {{
-    transform: scale(1.3);
-    margin-right: 8px;
-}}
-
-.stSlider > div > div, .stSelectbox > div {{
-    font-size: {font_size}px !important;
-}}
-
-/* Modo oscuro */
-@media (prefers-color-scheme: dark) {{
-    body {{
-        background-color: #111;
-        color: #eee;
-    }}
-    input, textarea, select, button {{
-        background-color: #222;
-        color: #eee;
-        border: 1px solid #555;
-    }}
-    button {{
-        background-color: #5c8d5c;
-    }}
-    button:hover {{
-        background-color: #477347;
-    }}
+/* Estilo para títulos y texto general */
+html, body {{
+    font-size: {font_size}px;
 }}
 </style>
 """, unsafe_allow_html=True)
 
+mostrar = st.checkbox("🔽 Detalles adicionales")
+
+if mostrar:
+    st.markdown("### Sección expandida")
+    st.write("Este contenido se muestra al marcar el checkbox.")
+
+
+
+opcion = st.radio("Selecciona sección:", ["🔍 Análisis", "📊 Resultados", "⚙️ Configuración"])
+
+if opcion == "🔍 Análisis":
+    st.write("Contenido del análisis.")
+elif opcion == "📊 Resultados":
+    st.write("Aquí van los resultados.")
+elif opcion == "⚙️ Configuración":
+    st.write("Opciones de configuración.")
+
+
+opcion = st.selectbox("Menú:", ["Análisis", "Resultados", "Configuración"])
+
+
+
+
+
+
+
+
 # Tabla de valores caldeos
-caldeo_valores = {
+caldeo_valores = {mostrar = st.checkbox("🔽 Detalles adicionales")
+
+if mostrar:
+    st.markdown("### Sección expandida")
+    st.write("Este contenido se muestra al marcar el checkbox.")
     'A': 1, 'I': 1, 'J': 1, 'Q': 1, 'Y': 1,
     'B': 2, 'K': 2, 'R': 2,
     'C': 3, 'G': 3, 'L': 3, 'S': 3,
@@ -107,7 +94,7 @@ def valor_caldeo_letra(letra):
     for valor, letras in tabla_caldea.items():
         if letra in letras.split():
             return valor
-    return None
+    return Non
 
 
 
