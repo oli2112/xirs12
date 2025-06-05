@@ -11,7 +11,70 @@ from diadelnacimiento import dias_nacimiento
 from letraInicialDelNombre import letra_inicial_caldea
 import pandas as pd
 
+import streamlit as st
 
+# Título
+st.title("App con zoom de fuente dinámico")
+
+# Slider para ajustar el tamaño de fuente base (zoom)
+font_size = st.slider("Tamaño de fuente (px)", min_value=12, max_value=32, value=18)
+
+# CSS generado dinámicamente
+st.markdown(f"""
+    <style>
+    html, body {{
+        font-size: {font_size}px;
+    }}
+
+    h1, h2, h3, h4, h5, h6 {{
+        font-size: {font_size + 6}px !important;
+    }}
+
+    input[type="text"], input[type="number"], textarea, select, button {{
+        font-size: {font_size}px !important;
+    }}
+
+    input[type="checkbox"], input[type="radio"] {{
+        transform: scale(1.3);
+        margin-right: 8px;
+    }}
+
+    /* Slider y selectbox */
+    .stSlider > div > div, .stSelectbox > div {{
+        font-size: {font_size}px !important;
+    }}
+
+    @media (prefers-color-scheme: dark) {{
+        body {{
+            background-color: #111;
+            color: #eee;
+        }}
+        input, textarea, select, button {{
+            background-color: #222;
+            color: #eee;
+            border: 1px solid #555;
+        }}
+        button {{
+            background-color: #5c8d5c;
+        }}
+        button:hover {{
+            background-color: #477347;
+        }}
+    }}
+    </style>
+""", unsafe_allow_html=True)
+
+# Contenido de prueba
+st.subheader("Texto de ejemplo")
+st.write("Este texto debería escalar con el tamaño que elijas arriba.")
+st.text_input("Campo de texto")
+st.number_input("Campo numérico")
+st.selectbox("Opciones", ["Uno", "Dos", "Tres"])
+st.slider("Valor", 0, 100, 50)
+st.button("Botón")
+st.checkbox("¿Aceptas?")
+with st.expander("Más información"):
+    st.write("Este texto dentro del expander también sigue el tamaño dinámico.")
 
 # Tabla de valores caldeos
 caldeo_valores = {
@@ -105,17 +168,6 @@ def analizar_numeros_en_nombre(nombre):
 
 
 
-zoom = st.slider("Zoom (tamaño de fuente)", 12, 32, 16)
-
-st.markdown(f"""
-    <style>
-    html, body, [class*="css"]  {{
-        font-size: {zoom}px;
-    }}
-    </style>
-    """, unsafe_allow_html=True)
-
-st.write("Texto ajustado según el zoom elegido.")
 
 # 🔢 Interfaz
 st.title("🔮Kalking Trueno")
