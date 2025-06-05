@@ -64,11 +64,7 @@ opcion = st.selectbox("Menú:", ["Análisis", "Resultados", "Configuración"])
 
 
 # Tabla de valores caldeos
-caldeo_valores = {mostrar = st.checkbox("🔽 Detalles adicionales")
-
-if mostrar:
-    st.markdown("### Sección expandida")
-    st.write("Este contenido se muestra al marcar el checkbox.")
+caldeo_valores = {
     'A': 1, 'I': 1, 'J': 1, 'Q': 1, 'Y': 1,
     'B': 2, 'K': 2, 'R': 2,
     'C': 3, 'G': 3, 'L': 3, 'S': 3,
