@@ -36,25 +36,6 @@ html, body {{
 </style>
 """, unsafe_allow_html=True)
 
-mostrar = st.checkbox("🔽 Detalles adicionales")
-
-if mostrar:
-    st.markdown("### Sección expandida")
-    st.write("Este contenido se muestra al marcar el checkbox.")
-
-
-
-opcion = st.radio("Selecciona sección:", ["🔍 Análisis", "📊 Resultados", "⚙️ Configuración"])
-
-if opcion == "🔍 Análisis":
-    st.write("Contenido del análisis.")
-elif opcion == "📊 Resultados":
-    st.write("Aquí van los resultados.")
-elif opcion == "⚙️ Configuración":
-    st.write("Opciones de configuración.")
-
-
-opcion = st.selectbox("Menú:", ["Análisis", "Resultados", "Configuración"])
 
 
 
