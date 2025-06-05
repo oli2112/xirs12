@@ -105,7 +105,17 @@ def analizar_numeros_en_nombre(nombre):
 
 
 
+zoom = st.slider("Zoom (tamaño de fuente)", 12, 32, 16)
 
+st.markdown(f"""
+    <style>
+    html, body, [class*="css"]  {{
+        font-size: {zoom}px;
+    }}
+    </style>
+    """, unsafe_allow_html=True)
+
+st.write("Texto ajustado según el zoom elegido.")
 
 # 🔢 Interfaz
 st.title("🔮Kalking True")
