@@ -13,19 +13,29 @@ import pandas as pd
 
 
 
-# Título
-st.title("App con zoom de fuente dinámico")
 
-# Slider para ajustar el tamaño de fuente base (zoom)
-font_size = st.slider("Tamaño de fuente (px)", min_value=12, max_value=32, value=18)
-
-# CSS generado dinámicamente
 st.markdown(f"""
     <style>
     html, body {{
         font-size: {font_size}px;
     }}
 
+    /* Títulos de tabs */
+    .stTabs [data-baseweb="tab"] {{
+        font-size: {font_size}px !important;
+    }}
+
+    /* Títulos de expanders */
+    .st-expander summary {{
+        font-size: {font_size + 2}px !important;
+    }}
+
+    /* Texto dentro de expanders */
+    .st-expander div[class^="stMarkdownContainer"] {{
+        font-size: {font_size}px !important;
+    }}
+
+    /* Otros estilos comunes */
     h1, h2, h3, h4, h5, h6 {{
         font-size: {font_size + 6}px !important;
     }}
@@ -34,14 +44,13 @@ st.markdown(f"""
         font-size: {font_size}px !important;
     }}
 
+    .stSlider > div > div, .stSelectbox > div {{
+        font-size: {font_size}px !important;
+    }}
+
     input[type="checkbox"], input[type="radio"] {{
         transform: scale(1.3);
         margin-right: 8px;
-    }}
-
-    /* Slider y selectbox */
-    .stSlider > div > div, .stSelectbox > div {{
-        font-size: {font_size}px !important;
     }}
 
     @media (prefers-color-scheme: dark) {{
@@ -64,17 +73,7 @@ st.markdown(f"""
     </style>
 """, unsafe_allow_html=True)
 
-# Contenido de prueba
-st.subheader("Texto de ejemplo")
-st.write("Este texto debería escalar con el tamaño que elijas arriba.")
-st.text_input("Campo de texto")
-st.number_input("Campo numérico")
-st.selectbox("Opciones", ["Uno", "Dos", "Tres"])
-st.slider("Valor", 0, 100, 50)
-st.button("Botón")
-st.checkbox("¿Aceptas?")
-with st.expander("Más información"):
-    st.write("Este texto dentro del expander también sigue el tamaño dinámico.")
+
 
 # Tabla de valores caldeos
 caldeo_valores = {
