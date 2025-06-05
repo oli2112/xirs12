@@ -18,66 +18,67 @@ st.title("App con zoom de fuente dinámico")
 # Slider para ajustar el tamaño de fuente base (zoom)
 font_size = st.slider("Tamaño de fuente (px)", min_value=12, max_value=32, value=18)
 
+
 st.markdown(f"""
-    <style>
-    html, body {{
-        font-size: {font_size}px;
-    }}
+<style>
+/* ===== Tamaño base general ===== */
+html, body {{
+    font-size: {font_size}px;
+}}
 
-    /* Títulos de tabs */
-    .stTabs [data-baseweb="tab"] {{
-        font-size: {font_size}px !important;
-    }}
+/* ===== Títulos de Tabs (clase generada estable) ===== */
+div[data-testid="stTabs"] button {{
+    font-size: {font_size + 2}px !important;
+}}
 
-    /* Títulos de expanders */
-    .st-expander summary {{
-        font-size: {font_size + 2}px !important;
-    }}
+/* ===== Título del Expander ===== */
+div[data-testid="stExpander"] summary {{
+    font-size: {font_size + 2}px !important;
+}}
 
-    /* Texto dentro de expanders */
-    .st-expander div[class^="stMarkdownContainer"] {{
-        font-size: {font_size}px !important;
-    }}
+/* ===== Texto dentro del Expander ===== */
+div[data-testid="stExpander"] div[role="region"] {{
+    font-size: {font_size}px !important;
+}}
 
-    /* Otros estilos comunes */
-    h1, h2, h3, h4, h5, h6 {{
-        font-size: {font_size + 6}px !important;
-    }}
+/* ===== Otros elementos ===== */
+h1, h2, h3, h4, h5, h6 {{
+    font-size: {font_size + 6}px !important;
+}}
 
-    input[type="text"], input[type="number"], textarea, select, button {{
-        font-size: {font_size}px !important;
-    }}
+input[type="text"], input[type="number"], textarea, select, button {{
+    font-size: {font_size}px !important;
+}}
 
-    .stSlider > div > div, .stSelectbox > div {{
-        font-size: {font_size}px !important;
-    }}
+input[type="checkbox"], input[type="radio"] {{
+    transform: scale(1.3);
+    margin-right: 8px;
+}}
 
-    input[type="checkbox"], input[type="radio"] {{
-        transform: scale(1.3);
-        margin-right: 8px;
-    }}
+.stSlider > div > div, .stSelectbox > div {{
+    font-size: {font_size}px !important;
+}}
 
-    @media (prefers-color-scheme: dark) {{
-        body {{
-            background-color: #111;
-            color: #eee;
-        }}
-        input, textarea, select, button {{
-            background-color: #222;
-            color: #eee;
-            border: 1px solid #555;
-        }}
-        button {{
-            background-color: #5c8d5c;
-        }}
-        button:hover {{
-            background-color: #477347;
-        }}
+/* Modo oscuro */
+@media (prefers-color-scheme: dark) {{
+    body {{
+        background-color: #111;
+        color: #eee;
     }}
-    </style>
+    input, textarea, select, button {{
+        background-color: #222;
+        color: #eee;
+        border: 1px solid #555;
+    }}
+    button {{
+        background-color: #5c8d5c;
+    }}
+    button:hover {{
+        background-color: #477347;
+    }}
+}}
+</style>
 """, unsafe_allow_html=True)
-
-
 
 # Tabla de valores caldeos
 caldeo_valores = {
