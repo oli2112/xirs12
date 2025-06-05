@@ -11,7 +11,7 @@ from diadelnacimiento import dias_nacimiento
 from letraInicialDelNombre import letra_inicial_caldea
 import pandas as pd
 
-import streamlit as st
+
 
 # Título
 st.title("App con zoom de fuente dinámico")
