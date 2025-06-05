@@ -118,8 +118,8 @@ st.markdown(f"""
 st.write("Texto ajustado según el zoom elegido.")
 
 # 🔢 Interfaz
-st.title("🔮Kalking True")
-tabs = st.tabs(["🔢 Cálculo de Números", "📖 Significados", "📘 Definiciones", "📘 Definiciones otras"])
+st.title("🔮Kalking Trueno")
+tabs = st.tabs(["🔢Cálculo de Números", "📖 Significados", "📘 Definiciones", "📘 Definiciones otras"])
 
 
 with tabs[0]:
