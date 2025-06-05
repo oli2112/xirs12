@@ -11,6 +11,21 @@ from diadelnacimiento import dias_nacimiento
 from letraInicialDelNombre import letra_inicial_caldea
 import pandas as pd
 
+
+
+
+# Ocultar el menú de tres puntos (menú de Streamlit)
+hide_streamlit_style = """
+    <style>
+    #MainMenu {visibility: hidden;}
+    footer {visibility: hidden;}
+    header {visibility: hidden;}
+    </style>
+"""
+st.markdown(hide_streamlit_style, unsafe_allow_html=True)
+
+
+
 font_size = 20  # ejemplo dinámico
 
 st.markdown(f"""
