@@ -1,1 +1,11 @@
+# .streamlit/config.toml
+[server]
+headless = true
+enableCORS = false
+port = 10000
 
+[client]
+showSidebarNavigation = false
+
+[browser]
+gatherUsageStats = false
