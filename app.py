@@ -28,7 +28,7 @@ html, body {{
 
 /* ===== Títulos de Tabs (clase generada estable) ===== */
 div[data-testid="stTabs"] button {{
-    font-size: {font_size + 2}px !important;
+    font-size: {font_size + 12}px !important;
 }}
 
 /* ===== Título del Expander ===== */
