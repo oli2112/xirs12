@@ -13,7 +13,7 @@ import pandas as pd
 
 
 # Título
-st.title("App con zoom de fuente dinámico")
+st.title("App con zoom dxe fuente dinámico")
 
 # Slider para ajustar el tamaño de fuente base (zoom)
 font_size = st.slider("Tamaño de fuente (px)", min_value=12, max_value=32, value=18)
