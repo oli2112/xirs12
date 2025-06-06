@@ -25,8 +25,7 @@ hide_streamlit_style = """
 st.markdown(hide_streamlit_style, unsafe_allow_html=True)
 
 
-
-font_size = 20  # ejemplo dinámico
+font_size = st.slider("Tamaño de fuente", 12, 30, 18)
 
 st.markdown(f"""
 <style>
